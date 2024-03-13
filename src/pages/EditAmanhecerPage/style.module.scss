@@ -1,0 +1,11 @@
+.editAmanhecerPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 8px;
+    min-height: clamp(70vh, 100vw, 80vh);
+
+    h1{
+        margin: 30px 0;
+    }
+}
