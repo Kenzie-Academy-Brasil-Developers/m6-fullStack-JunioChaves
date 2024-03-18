@@ -1,8 +1,9 @@
-# React + Vite
+# Projeto Full Stack Junio Chaaves
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação utilizou as seguintes tecnologias no frontend: react + typescript
 
-Currently, two official plugins are available:
+Para você conseguir rodar a aplicação rode os comandos <strong>npm install</strong> e um <strong>npm run dev</strong>.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para rodar a API: https://github.com/Kenzie-Academy-Brasil-Developers/api-Amanhecer
+
+Para você conseguir rodar a aplicação localmente, é necessário dar um <strong>npm install</strong> e um <strong>npm run dev</strong>,é necessário também rodar as <i>migrações</i> das entidades que são por esse comando(faça os passos de migrações antes de tentar rodar): <strong>npm run typeorm migration:generate ./src/migrations/inicial -- -d ./src/data-source.ts</strong>, logo após esse comando é necessário rodar a migração que é por esse comando: <strong>npm run typeorm migration:run -- -d src/data-source.ts</strong>
