@@ -12,7 +12,6 @@ export const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  //acontece na inicialização
   const pathname = window.location.pathname;
 
   useEffect(() => {
@@ -21,19 +20,24 @@ export const UserProvider = ({ children }) => {
 
     const getUser = async () => {
       try {
+        if (!userId) {
+          // Se o userId não estiver disponível, não faça a chamada à API
+          return;
+       }
         const { data } = await api.get(`/users/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setUser(data);
+        console.log('**********************',data);
         navigate(pathname);
       } catch (error) {
         console.log(error);
       }
     };
 
-    if (token && userId) {
+    if (token) {
       getUser();
     }
   }, []);
