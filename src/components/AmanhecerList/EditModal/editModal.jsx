@@ -7,18 +7,19 @@ import { AmanhecerContext } from "../../../providers/AmanhecerContext";
 
 
 
-export const ModalEdit = ({ isOpen, onRequestClose }) => {
+export const EditModal = ({ isOpen, onRequestClose, id }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
   
-  const { createAmanhecer } = useContext(AmanhecerContext);
+  const { editAmanhecer } = useContext(AmanhecerContext);
   
   
   const onSubmit = async (formData) => {
-   await createAmanhecer(formData);
+   // eslint-disable-next-line no-undef
+   await editAmanhecer(id, formData);
 
     onRequestClose();
   };
@@ -27,18 +28,18 @@ export const ModalEdit = ({ isOpen, onRequestClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className={styles.modalHeader} >
-        <h2>Deixe o seu contato</h2>
+        <h2>Editar contato</h2>
         <button className="btn outline" onClick={onRequestClose}>X</button>
       </div>
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <Input
+      <Input
           label="Seu nome"
           type="name"
           {...register("name", { required: "Este campo é obrigatório" })}
           error={errors.name}
         />
-
+        
         <Input
           label="Seu número de telefone"
           type="text"

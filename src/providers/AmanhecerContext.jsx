@@ -17,8 +17,8 @@ export const AmanhecerProvider = ({ children }) => {
     const getAmanhecer = async () => {
       try {
         const token = localStorage.getItem("TOKEN");
-        const userId = localStorage.getItem("userId");
-        console.log(userId);
+        // const userId = localStorage.getItem("userId");
+        // console.log(userId);
 
         const { data } = await api.get(`/contact/user`, {
           headers: {
@@ -56,29 +56,14 @@ export const AmanhecerProvider = ({ children }) => {
     }
   };
 
-  const deleteAmanhecer = async (deletingId) => {
-    try {
-      const token = localStorage.getItem("TOKEN");
-      await api.delete(`/contact/${deletingId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const newAmanhecerList = amanhecerList.filter(
-        (amanhecer) => amanhecer.id !== deletingId
-      );
-      setAmanhecerList(newAmanhecerList);
-      toast.success("Excluido com sucesso!");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const editAmanhecer = async (formData) => {
     try {
       const token = localStorage.getItem("TOKEN");
+      const id = localStorage.getItem("userId");
+      console.log('9999999999999999999999',token);
+      console.log('+++++++++++++++++++++++++', id);
       const { data } = await api.patch(
-        `/contact/${editingAmanhecer.id}`,
+        `/contact/${id}`,
         formData,
         {
           headers: {
@@ -86,8 +71,9 @@ export const AmanhecerProvider = ({ children }) => {
           },
         }
       );
+      console.log('33333333333333333333333333333333',data);
       const newAmanhecerList = amanhecerList.map((amanhecer) => {
-        if (amanhecer.id === editingAmanhecer.id) {
+        if (amanhecer.id === id) {
           return data;
         } else {
           return amanhecer;
@@ -97,6 +83,26 @@ export const AmanhecerProvider = ({ children }) => {
       setEditingAmanhecer(null);
       toast.success("Editado com sucesso!");
       navigate("/user");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteAmanhecer = async (deletingId) => {
+    try {
+      const token = localStorage.getItem("TOKEN");
+      const id = localStorage.getItem("userId");
+
+      await api.delete(`/contact/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const newAmanhecerList = amanhecerList.filter(
+        (amanhecer) => amanhecer.id !== deletingId
+      );
+      setAmanhecerList(newAmanhecerList);
+      toast.success("Excluido com sucesso!");
     } catch (error) {
       console.log(error);
     }

@@ -1,17 +1,19 @@
-import Logo from "../../assets/LogoWhite.svg";
+import Logo from "../../assets/LogoAmanhecer.jpg";
 import styles from "./style.module.scss";
 
 export const Footer = () => {
    return (
       <footer className={styles.footer}>
-         <div className="container">
+         {/* <div className="container"> */}
             <div className={styles.flexBox}>
                <img src={Logo} alt="Logo Amanhecer" />
-               <p className="paragraph white">
-                  &copy; Todos os direitos reservados - Junio Chaves
-               </p>
+               <div className={styles.paragraph}>
+                  <p className={styles.paragraph}>
+                     &copy; Todos os direitos reservados - Junio Chaves
+                  </p>
+               </div>
             </div>
-         </div>
+         {/* </div> */}
       </footer>
    );
 };

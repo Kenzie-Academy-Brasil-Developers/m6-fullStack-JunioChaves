@@ -18,14 +18,14 @@ export const EditAmanhecerPage = () => {
                <button
                   onClick={() => {
                      setEditingAmanhecer(null);
-                     navigate("/users/id");
+                     navigate("/contact/id");
                   }}
                   className="link"
                   to="/users"
                >
                   <MdArrowBack /> voltar
                </button>
-               <h1 className="title center">Altere um recado</h1>
+               <h1 className="title center">Altere um contato</h1>
                <EditAmanhecerForm />
             </div>
          </main>

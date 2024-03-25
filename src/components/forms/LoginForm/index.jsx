@@ -4,9 +4,8 @@ import { Input } from "../Input";
 import { InputPassword } from "../InputPassword";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../providers/UserContext";
-import { api } from "../../../services/api";
 
 
 export const LoginForm = () => {
@@ -19,7 +18,7 @@ export const LoginForm = () => {
       resolver: zodResolver(loginFormSchema),
    });
 
-   const [loading, setLoading] = useState(false);  
+   // const [loading, setLoading] = useState(false);  
 
    const { userLogin } = useContext(UserContext);
 
@@ -42,8 +41,9 @@ export const LoginForm = () => {
             error={errors.password}
             // disabled={loading}
          />
+         {/* disabled={loading} */}
          <div>
-            <Link className="link" to="/register" disabled={loading}>Cadastre-se</Link>
+            <Link className="link" to="/register">Cadastre-se</Link>
             <button className="btn outline" type="submit">
                {/* {loading ? "acessando..." : "Acessar Amanhecer"} */}
                Entrar

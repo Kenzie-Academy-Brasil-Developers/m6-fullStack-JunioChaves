@@ -16,15 +16,14 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("TOKEN");
-    const userId = localStorage.getItem("userId");
+    const id = localStorage.getItem("userId");
 
     const getUser = async () => {
       try {
-        if (!userId) {
-          // Se o userId não estiver disponível, não faça a chamada à API
+        if (!id) {
           return;
        }
-        const { data } = await api.get(`/users/${userId}`, {
+        const { data } = await api.get(`/users/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -56,7 +55,7 @@ export const UserProvider = ({ children }) => {
     try {
       const response = await api.post("/users/register", formData);
       setUser(response.formData);
-      navigate("/");
+      // navigate("/");
       toast.success("Cadastro realizado com sucesso!");
     } catch (error) {
       console.log(error);

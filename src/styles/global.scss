@@ -6,6 +6,15 @@
     --color-white: #F5F5F5;
 }
 
-body{
-    background: var(--color-orange);
+
+body {
+    background-image: url('../assets/Logo.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
+
+  

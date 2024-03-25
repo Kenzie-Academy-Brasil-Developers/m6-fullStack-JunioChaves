@@ -19,8 +19,8 @@ export const EditAmanhecerForm = () => {
 
     return(
         <form className={styles.form} onSubmit={handleSubmit(submit)}>
-            <Textarea label="Sua mensagem" {...register("content")} />
-            <button type="submit" className="btn solid">Editar a mensagem</button>
+            <Textarea label="Edite seu contato" {...register("content")} />
+            <button type="submit" className="btn solid">Editar seu contato</button>
         </form>
     )
 }

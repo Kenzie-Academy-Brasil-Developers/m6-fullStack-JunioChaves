@@ -1,12 +1,22 @@
 footer{
-    padding: 1.5rem 0;
+    padding: 0.3rem 0;
     background: var(--color-pink);
 
     .flexBox{
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem;
+        gap: 30rem;
+        padding: 1rem;
+        width: 100px;
+        height: 80px;
     }
+    
+}
+.paragraph{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50rem;
+    color: white;
 }
